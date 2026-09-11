@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #08090b;
+  --panel: #0d0f12;
+  --panel-2: #15181d;
+  --border: #292d34;
+  --text: #f7f7f8;
+  --muted: #a1a1aa;
+  --amber: #f5b942;
+  --teal: #67e8f9;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+}
+
+.light {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --panel-2: #f1f5f9;
+  --border: #d7dee7;
+  --text: #111827;
+  --muted: #475569;
+  --amber: #9a6700;
+  --teal: #0f766e;
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+
+  font-family:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 18px;
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+input {
+  font: inherit;
+}
+
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@layer components {
+  .page-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .page-container {
+    width: min(100%, 1180px);
+    margin-inline: auto;
+    padding: 72px clamp(20px, 5vw, 64px) 64px;
+  }
+
+  .page-title {
+    margin: 0;
+    font-size: clamp(2.35rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    font-weight: 750;
+  }
+
+  .page-subtitle {
+    margin-top: 16px;
+    font-size: clamp(1.35rem, 2.6vw, 2.15rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    color: var(--muted);
+    font-weight: 650;
+  }
+
+  .page-lead {
+    max-width: 920px;
+    color: var(--text);
+    font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+    line-height: 1.8;
+  }
+
+  .body-copy {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+
+  .section-label {
+    color: var(--amber);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .button-primary,
+  .button-secondary,
+  .page-nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 10px;
+
+    font-weight: 650;
+
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .button-primary {
+    padding: 13px 18px;
+    background: var(--amber);
+    color: var(--bg);
+
+    box-shadow:
+      0 8px 24px color-mix(in srgb,
+        var(--amber) 18%,
+        transparent);
+  }
+
+  .button-primary:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 12px 30px color-mix(in srgb,
+        var(--amber) 28%,
+        transparent);
+  }
+
+  .button-secondary {
+    padding: 12px 17px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+  }
+
+  .button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--amber);
+    background: var(--panel-2);
+    color: var(--amber);
+  }
+
+  .icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    color: var(--muted);
+
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .icon-button:hover {
+    transform: translateY(-2px);
+    background: var(--panel-2);
+    border-color: var(--border);
+    color: var(--amber);
+  }
+
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--panel);
+
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+
+    border-color: color-mix(in srgb,
+        var(--amber) 55%,
+        var(--border));
+
+    box-shadow: var(--shadow);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: var(--panel-2);
+    color: var(--muted);
+
+    padding: 7px 11px;
+
+    font-family:
+      "IBM Plex Mono",
+      ui-monospace,
+      monospace;
+
+    font-size: 0.78rem;
+
+    transition:
+      transform 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .tag:hover {
+    transform: translateY(-2px);
+    color: var(--text);
+    border-color: var(--amber);
+    background: var(--panel);
+  }
+
+  .page-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-top: 56px;
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+  }
+
+  .page-nav-link {
+    padding: 10px 12px;
+    color: var(--muted);
+  }
+
+  .page-nav-link:hover {
+    color: var(--amber);
+    transform: translateX(-2px);
+  }
+
+  .page-nav-link-next:hover {
+    transform: translateX(2px);
+  }
+}
+
+.caret::after {
+  content: "";
+
+  display: inline-block;
+
+  width: 8px;
+  height: 1.05em;
+
+  margin-left: 5px;
+
+  background: var(--amber);
+
+  vertical-align: text-bottom;
+
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
