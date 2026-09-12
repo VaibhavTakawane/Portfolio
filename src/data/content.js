@@ -12,7 +12,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/vaibhav-takawane-b63b80350/",
   twitter: "", // no Twitter/X handle provided — leave blank or remove from UI
   // TODO: replace with a real hosted link to your resume PDF (e.g. Google Drive "anyone with link can view", or host it in /public)
-  resumeUrl: "",
+  resumeUrl: "https://drive.google.com/file/d/1a631JMudPJYpiri8u0QDCShUNTXOPR3C/view",
 };
 
 export const skills = [
