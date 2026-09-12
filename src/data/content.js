@@ -47,7 +47,7 @@ export const projects = [
       "Full-stack AI job matcher with resume analysis and personalized job recommendations, powered by the Groq LLM API with prompt-engineered resume parsing.",
     tech: ["React", "FastAPI", "Groq LLM API"],
     github: "https://github.com/VaibhavTakawane/AI-JOB-MATCHER",
-    live: "",
+    live: "https://ai-job-matcher-7tkr.onrender.com/",
   },
   {
     name: "Shop_Cart",
@@ -55,7 +55,7 @@ export const projects = [
       "Full-stack e-commerce app with product browsing, reviews, cart, JWT authentication, multi-step checkout, and PayPal payments.",
     tech: ["React", "Redux Toolkit", "Django REST Framework"],
     github: "https://github.com/VaibhavTakawane/Shop_Cart",
-    live: "",
+    live: "https://shop-cart-rouge-theta.vercel.app/",
   },
   {
     name: "Fast-API",
